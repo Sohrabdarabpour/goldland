@@ -275,8 +275,17 @@ function getOrderItems($order_id) {
 }
 
 function getTotalProducts() {
-    global $conn;
-    $sql = "SELECT COUNT(*) as total FROM products";
-    $result = $conn->query($sql);
-    return $result->fetch_assoc()['total'];
+    global $pdo;
+    
+    try {
+        $sql = "SELECT COUNT(*) as total FROM products";
+        $stmt = $pdo->query($sql);
+        return $stmt->fetch()['total'];
+    } catch (PDOException $e) {
+        if (DEBUG_MODE) {
+            die("خطا در دریافت تعداد محصولات: " . $e->getMessage());
+        }
+        return 0;
+    }
 }
+
