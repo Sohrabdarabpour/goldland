@@ -73,6 +73,24 @@ $products = $stmt->fetchAll();
 // دریافت دسته‌بندی‌ها برای منوی فیلتر
 $categories = getAllCategories();
 
+// دریافت تمام دسته‌بندی‌های فعال
+$categories = getAllCategories();
+
+// دریافت محصولات یک دسته‌بندی خاص
+$categoryId = $_GET['category_id'] ?? null;
+if ($categoryId) {
+    $products = getProductsByCategory($categoryId);
+    
+    foreach ($products as $product) {
+        echo "<div class='product'>
+                <h3>{$product['name']}</h3>
+                <p>وزن: {$product['weight']} گرم</p>
+                <p>عیار: {$product['purity']}</p>
+                <!-- بقیه فیلدها -->
+              </div>";
+    }
+}
+
 $page_title = "محصولات طلا و جواهر - GoldLand";
 include 'includes/header.php';
 ?>

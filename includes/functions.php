@@ -289,3 +289,40 @@ function getTotalProducts() {
     }
 }
 
+function getAllCategories() {
+    try {
+        $pdo = Database::getInstance();
+        $stmt = $pdo->query("
+            SELECT id, name, slug, description 
+            FROM categories 
+            WHERE status = 1
+            ORDER BY name ASC
+        ");
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    } catch (PDOException $e) {
+        error_log("خطا در دریافت دسته‌بندی‌ها: " . $e->getMessage());
+        return [];
+    }
+}
+
+function getProductsByCategory($categoryId) {
+    try {
+        $pdo = Database::getInstance();
+        $stmt = $pdo->prepare("
+            SELECT 
+                p.id, p.name, p.description, 
+                p.weight, p.purity, p.price,
+                p.discount_price, p.image,
+                p.stock, p.status
+            FROM products p
+            WHERE p.category_id = :category_id
+            AND p.status = 1
+            ORDER BY p.created_at DESC
+        ");
+        $stmt->execute([':category_id' => $categoryId]);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    } catch (PDOException $e) {
+        error_log("خطا در دریافت محصولات: " . $e->getMessage());
+        return [];
+    }
+}
