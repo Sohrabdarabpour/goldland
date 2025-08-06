@@ -279,4 +279,9 @@ function getOrderItems($order_id) {
     return $stmt->fetchAll();
 }
 
-
+function getTotalProducts() {
+    global $conn;
+    $sql = "SELECT COUNT(*) as total FROM products";
+    $result = $conn->query($sql);
+    return $result->fetch_assoc()['total'];
+}
