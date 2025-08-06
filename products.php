@@ -71,7 +71,7 @@ $stmt = executeQuery($sql, $params);
 $products = $stmt->fetchAll();
 
 // دریافت دسته‌بندی‌ها برای منوی فیلتر
-$categories = getAllCategories();
+
 
 // دریافت تمام دسته‌بندی‌های فعال
 $categories = getAllCategories();

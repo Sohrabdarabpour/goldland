@@ -290,8 +290,9 @@ function getTotalProducts() {
 }
 
 function getAllCategories() {
+    global $pdo; // استفاده از اتصال PDO موجود
+    
     try {
-        $pdo = Database::getInstance();
         $stmt = $pdo->query("
             SELECT id, name, slug, description 
             FROM categories 
@@ -306,8 +307,9 @@ function getAllCategories() {
 }
 
 function getProductsByCategory($categoryId) {
+    global $pdo; // استفاده از اتصال PDO موجود
+    
     try {
-        $pdo = Database::getInstance();
         $stmt = $pdo->prepare("
             SELECT 
                 p.id, p.name, p.description, 
