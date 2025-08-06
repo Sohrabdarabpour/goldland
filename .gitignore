@@ -10,4 +10,4 @@ config.php
 # فایل‌های موقت
 *.log
 *.tmp
-*.cache
+*.cacheconfig.php
