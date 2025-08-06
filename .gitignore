@@ -1,7 +1,6 @@
 # فایل‌های سیستمی
 .htaccess
 .env
-config.php
 
 # پوشه‌های سیستمی
 /vendor/
@@ -10,7 +9,5 @@ config.php
 # فایل‌های موقت
 *.log
 *.tmp
-*.cacheconfig.php
-/includes/config.php
 /uploads/
 /.env
