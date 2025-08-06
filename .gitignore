@@ -1,0 +1,13 @@
+# فایل‌های سیستمی
+.htaccess
+.env
+config.php
+
+# پوشه‌های سیستمی
+/vendor/
+/node_modules/
+
+# فایل‌های موقت
+*.log
+*.tmp
+*.cache

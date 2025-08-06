@@ -1,0 +1,42 @@
+/* goldland/assets/css/profile.css */
+
+/* استایل‌های فرم پروفایل */
+.profile-form {
+    background: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+.profile-form .form-group {
+    margin-bottom: 20px;
+}
+
+.profile-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #333;
+}
+
+.profile-form .form-control {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-family: 'Vazirmatn', sans-serif;
+}
+
+.password-change-section {
+    margin-top: 40px;
+    padding-top: 30px;
+    border-top: 1px solid #eee;
+}
+
+/* استایل‌های واکنش‌گرا */
+@media (max-width: 768px) {
+    .profile-form {
+        padding: 20px;
+    }
+}
